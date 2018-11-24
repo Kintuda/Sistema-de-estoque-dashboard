@@ -1,0 +1,79 @@
+﻿@model enzo_estoqueV1.Models.Fornecedor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                            <dd>
+                                Fornecedor:  @Html.DisplayFor(model => model.RazaoSocial)
+                            </dd>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NomeFantasia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NomeFantasia)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Telefone)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Telefone)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Endereco)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Endereco)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Cidade)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cidade)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CpfCnpj)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CpfCnpj)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+                        @Html.ActionLink("Voltar", "Index")
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

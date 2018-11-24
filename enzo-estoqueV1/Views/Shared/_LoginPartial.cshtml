@@ -3,14 +3,44 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+
+        @*<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <div class="photo">
+                    <img src="../assets/img/anime3.png" alt="Profile Photo">
+                </div>
+                <b class="caret d-none d-lg-block d-xl-block"></b>
+                <p class="d-lg-none">
+                    Log out
+                </p>
+            </a>
+            <li class="nav-link">
+
+            </li>
+            <li class="dropdown-divider"></li>
+            </li>*@
+<li class="nav navbar-nav"></li>
+        <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <div class="photo">
+                    <img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="Profile Photo">
+                </div>
+                <b class="caret d-none d-lg-block d-xl-block"></b>
+            </a>
+            <ul class="dropdown-menu dropdown-navbar">
+                <li class="nav-link">
+                    <a class="nav-item dropdown-item" href="@Url.Action("Index", "Manage", new { id = "ManageLink" })"> Olá @User.Identity.GetUserName()</a>
+                </li>
+                <li class="nav-link">
+                    <a class="nav-item dropdown-item" href="@Url.Action("Index", "Manage", new { id = "ManageLink" })">Perfil</a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-item dropdown-item">Log out</a>
+                </li>
+            </ul>
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
     }
 }
 else

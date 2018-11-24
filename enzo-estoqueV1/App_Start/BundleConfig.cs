@@ -11,6 +11,14 @@ namespace enzo_estoqueV1
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/dashboard").Include(
+                        "~/Scripts/black-dashboard.min",
+                        "~/Scripts/black-dashboard.js.map",
+                        "~/Scripts/black-dashboard.js",
+                        "~/Scripts/perfect-scrollbar.jquery.min.js",
+                        "~/Scripts/demo.js"
+                        ));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -24,7 +32,13 @@ namespace enzo_estoqueV1
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/black-dashboard.css",
+                      "~/Content/black-dashboard.min",
+                      "~/Content/main.css",
+                      "~/Content/black-dashboard.css?v=1.0.0",
+                      "~/Content/nucleo-icons.css",
                       "~/Content/site.css"));
         }
     }
 }
+

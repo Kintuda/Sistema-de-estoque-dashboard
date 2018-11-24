@@ -1,0 +1,52 @@
+﻿@model enzo_estoqueV1.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <dd>
+                        Produto:  @Html.DisplayFor(model => model.Descricao)
+                    </dd>
+                </div>
+                <div class="card-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fornecedor.RazaoSocial)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Fornecedor.RazaoSocial)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EstoqueInicial)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EstoqueInicial)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PrecoBase)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PrecoBase)
+                        </dd>
+                    </dl>
+                </div>
+                <p style="margin:10px">
+                    @Html.ActionLink("Editar ", "Edit", new { id = Model.ID }) |
+                    @Html.ActionLink("Voltar", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

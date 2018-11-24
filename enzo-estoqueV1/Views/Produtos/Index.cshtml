@@ -1,0 +1,66 @@
+﻿@model IEnumerable<enzo_estoqueV1.Models.Produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listagem de produtos</h2>
+
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 class="card-title"> Produtos
+                        <a href="@Url.Action("Create", "Produtos", new { id = "homeLink" })"><i class="tim-icons icon-simple-add"></i></a>
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="overflow: auto">
+                        <table class="table tablesorter ">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Fornecedor.RazaoSocial)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Descricao)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EstoqueInicial)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PrecoBase)
+                                </th>
+                                <th>Ações</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fornecedor.RazaoSocial)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EstoqueInicial)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PrecoBase)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+                                        @Html.ActionLink("Detalhes", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Deletar", "Delete", new { id = item.ID })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
