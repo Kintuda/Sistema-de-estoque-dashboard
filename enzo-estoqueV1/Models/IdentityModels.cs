@@ -35,5 +35,9 @@ namespace enzo_estoqueV1.Models
         public System.Data.Entity.DbSet<enzo_estoqueV1.Models.Fornecedor> Fornecedors { get; set; }
 
         public System.Data.Entity.DbSet<enzo_estoqueV1.Models.Venda> Vendas { get; set; }
+
+        public System.Data.Entity.DbSet<enzo_estoqueV1.Models.Transportadora> Transportadoras { get; set; }
+
+        public System.Data.Entity.DbSet<enzo_estoqueV1.Models.Frete> Fretes { get; set; }
     }
 }

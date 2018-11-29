@@ -47,5 +47,7 @@ namespace enzo_estoqueV1.Models
             public virtual Produto Produto { get; set; }
             [Display(Name = "Data da venda")]
             public DateTime DataVenda { get; set; }
+            public int? TransportadoraID { get; set; }
+            public Transportadora Transportadora { get; set; }
             }
 }

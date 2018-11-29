@@ -10,7 +10,8 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header">
-                    <h4 class="card-title">Vendas
+                    <h4 class="card-title">
+                        Vendas
                         <a href="@Url.Action("Create", "Vendas", new { id = "homeLink" })"><i class="tim-icons icon-simple-add"></i></a>
                     </h4>
                 </div>
@@ -22,10 +23,13 @@
                                     @Html.DisplayNameFor(model => model.Produto.Descricao)
                                 </th>
                                 <th>
+                                    @Html.DisplayNameFor(model => model.Transportadora.Descricao)
+                                </th>
+                                <th>
                                     @Html.DisplayNameFor(model => model.Descricao)
                                 </th>
                                 <th>
-                                    Quantidade
+                                    @Html.DisplayNameFor(model => model.Quantidade)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.EnderecoDeEntrega)
@@ -52,6 +56,9 @@
                                         @Html.DisplayFor(modelItem => item.Produto.Descricao)
                                     </td>
                                     <td>
+                                        @Html.DisplayFor(modelItem => item.Transportadora.Descricao)
+                                    </td>
+                                    <td>
                                         @Html.DisplayFor(modelItem => item.Descricao)
                                     </td>
                                     <td>
@@ -73,9 +80,9 @@
                                         @Html.DisplayFor(modelItem => item.DataVenda)
                                     </td>
                                     <td>
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
-                                        @Html.ActionLink("Detalhes", "Details", new { id = item.ID }) |
-                                        @Html.ActionLink("Deletar", "Delete", new { id = item.ID })
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                     </td>
                                 </tr>
                             }
@@ -86,3 +93,5 @@
             </div>
         </div>
     </div>
+</div>
+

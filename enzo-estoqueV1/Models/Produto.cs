@@ -16,6 +16,8 @@ namespace enzo_estoqueV1.Models
         public int EstoqueInicial { get; set; }
         [Display(Name = "Preço Unitário")]
         public float PrecoBase { get; set; }
+        [Display(Name = "Preço Frete")]
+        public float Frete { get; set; }
         [Display(Name = "Fornecedor")]
         public int FornecedorID { get; set; }
         public virtual Fornecedor Fornecedor { get; set; }

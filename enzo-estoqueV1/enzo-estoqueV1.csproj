@@ -198,9 +198,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FornecedorsController.cs" />
+    <Compile Include="Controllers\FretesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Controllers\TransportadorasController.cs" />
     <Compile Include="Controllers\VendasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,12 +235,38 @@
     <Compile Include="Migrations\201811242133563_valorTotal.Designer.cs">
       <DependentUpon>201811242133563_valorTotal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811282325509_Transportadora.cs" />
+    <Compile Include="Migrations\201811282325509_Transportadora.Designer.cs">
+      <DependentUpon>201811282325509_Transportadora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811282335091_Frete.cs" />
+    <Compile Include="Migrations\201811282335091_Frete.Designer.cs">
+      <DependentUpon>201811282335091_Frete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811282336173_Frete1.cs" />
+    <Compile Include="Migrations\201811282336173_Frete1.Designer.cs">
+      <DependentUpon>201811282336173_Frete1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811282348270_Frete2.cs" />
+    <Compile Include="Migrations\201811282348270_Frete2.Designer.cs">
+      <DependentUpon>201811282348270_Frete2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811290007060_Frete3.cs" />
+    <Compile Include="Migrations\201811290007060_Frete3.Designer.cs">
+      <DependentUpon>201811290007060_Frete3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811290009385_Frete4.cs" />
+    <Compile Include="Migrations\201811290009385_Frete4.Designer.cs">
+      <DependentUpon>201811290009385_Frete4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Fornecedor.cs" />
+    <Compile Include="Models\Frete.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Transportadora.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -368,12 +396,22 @@
     <Content Include="Views\Produtos\Details.cshtml" />
     <Content Include="Views\Produtos\Edit.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
+    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\Transportadoras\Create.cshtml" />
+    <Content Include="Views\Transportadoras\Delete.cshtml" />
+    <Content Include="Views\Transportadoras\Details.cshtml" />
+    <Content Include="Views\Transportadoras\Edit.cshtml" />
+    <Content Include="Views\Transportadoras\Index.cshtml" />
     <Content Include="Views\Vendas\Create.cshtml" />
     <Content Include="Views\Vendas\Delete.cshtml" />
     <Content Include="Views\Vendas\Details.cshtml" />
     <Content Include="Views\Vendas\Edit.cshtml" />
     <Content Include="Views\Vendas\Index.cshtml" />
-    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\Fretes\Create.cshtml" />
+    <Content Include="Views\Fretes\Delete.cshtml" />
+    <Content Include="Views\Fretes\Details.cshtml" />
+    <Content Include="Views\Fretes\Edit.cshtml" />
+    <Content Include="Views\Fretes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -411,6 +449,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811242133563_valorTotal.resx">
       <DependentUpon>201811242133563_valorTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811282325509_Transportadora.resx">
+      <DependentUpon>201811282325509_Transportadora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811282335091_Frete.resx">
+      <DependentUpon>201811282335091_Frete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811282336173_Frete1.resx">
+      <DependentUpon>201811282336173_Frete1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811282348270_Frete2.resx">
+      <DependentUpon>201811282348270_Frete2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290007060_Frete3.resx">
+      <DependentUpon>201811290007060_Frete3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290009385_Frete4.resx">
+      <DependentUpon>201811290009385_Frete4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

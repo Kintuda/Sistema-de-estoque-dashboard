@@ -1,0 +1,58 @@
+﻿@model enzo_estoqueV1.Models.Frete
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Frete</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Transportadora.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transportadora.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Venda.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Venda.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnderecoEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnderecoEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

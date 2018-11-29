@@ -1,0 +1,71 @@
+﻿@model IEnumerable<enzo_estoqueV1.Models.Frete>
+
+@{
+    ViewBag.Title = "Fretes";
+}
+
+<h2>Listagem de fretes</h2>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 class="card-title">
+                        Fretes
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="overflow: auto">
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Transportadora.Descricao)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Venda.Descricao)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Descricao)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EnderecoEntrega)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Transportadora.Descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Venda.Descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descricao)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EnderecoEntrega)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

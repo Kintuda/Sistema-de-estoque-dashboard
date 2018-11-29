@@ -15,79 +15,79 @@
                     </dd>
                 </div>
                 <div>
-                    <div class="card-body">
-                        <dl class="dl-horizontal">
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Produto.Descricao)
-                            </dt>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Transportadora.Descricao)
+                        </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Produto.Descricao)
-                            </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Transportadora.Descricao)
+                        </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Descricao)
-                            </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Descricao)
-                            </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Descricao)
+                        </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Quantidade)
-                            </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Quantidade)
+                        </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Quantidade)
-                            </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Quantidade)
+                        </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.EnderecoDeEntrega)
-                            </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EnderecoDeEntrega)
+                        </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.EnderecoDeEntrega)
-                            </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.EnderecoDeEntrega)
+                        </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.ValorTotal)
-                            </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ValorTotal)
+                        </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.ValorTotal)
-                            </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.ValorTotal)
+                        </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Situacao)
-                            </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Situacao)
+                        </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Situacao)
-                            </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Situacao)
+                        </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Pagamento)
-                            </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Pagamento)
+                        </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.Pagamento)
-                            </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Pagamento)
+                        </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.DataVenda)
-                            </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DataVenda)
+                        </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.DataVenda)
-                            </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.DataVenda)
+                        </dd>
 
-                        </dl>
-                    </div>
-                    <p style="margin:10px">
-                        @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-                        @Html.ActionLink("Voltar", "Index")
-                    </p>
+                    </dl>
                 </div>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
         </div>
     </div>
 </div>

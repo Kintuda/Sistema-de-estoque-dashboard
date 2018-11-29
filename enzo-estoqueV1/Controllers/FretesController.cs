@@ -10,19 +10,19 @@ using enzo_estoqueV1.Models;
 
 namespace enzo_estoqueV1.Controllers
 {
-    public class VendasController : Controller
+    public class FretesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Vendas
+        // GET: Fretes
         [Authorize]
         public ActionResult Index()
         {
-            var vendas = db.Vendas.Include(v => v.Produto).Include(v => v.Transportadora);
-            return View(vendas.ToList());
+            var fretes = db.Fretes.Include(f => f.Transportadora).Include(f => f.Venda);
+            return View(fretes.ToList());
         }
 
-        // GET: Vendas/Details/5
+        // GET: Fretes/Details/5
         [Authorize]
         public ActionResult Details(int? id)
         {
@@ -30,57 +30,44 @@ namespace enzo_estoqueV1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Venda venda = db.Vendas.Find(id);
-            if (venda == null)
+            Frete frete = db.Fretes.Find(id);
+            if (frete == null)
             {
                 return HttpNotFound();
             }
-            return View(venda);
+            return View(frete);
         }
 
-        // GET: Vendas/Create
+        // GET: Fretes/Create
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.ProdutoID = new SelectList(db.Produtoes, "ID", "Descricao");
             ViewBag.TransportadoraID = new SelectList(db.Transportadoras, "ID", "Descricao");
+            ViewBag.VendaID = new SelectList(db.Vendas, "ID", "Descricao");
             return View();
         }
 
-        // POST: Vendas/Create
+        // POST: Fretes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Descricao,Quantidade,EnderecoDeEntrega,ValorTotal,Situacao,Pagamento,ProdutoID,DataVenda,TransportadoraID")] Venda venda)
+        public ActionResult Create([Bind(Include = "ID,Descricao,EnderecoEntrega,Status,VendaID,TransportadoraID")] Frete frete)
         {
             if (ModelState.IsValid)
             {
-                Produto produto = db.Produtoes.Find(venda.ProdutoID);
-                venda.ValorTotal = produto.PrecoBase * venda.Quantidade;
-                produto.EstoqueInicial = produto.EstoqueInicial - venda.Quantidade;
-                db.Entry(produto).State = EntityState.Modified;
-                var frete = new Frete
-                {
-                    Descricao = "FreteProduto",
-                    EnderecoEntrega = venda.EnderecoDeEntrega,
-                    Status = enzo_estoqueV1.Models.StatusFrete.PendenteProcessamento,
-                    VendaID = venda.ID,
-                    TransportadoraID = venda.TransportadoraID
-                };
                 db.Fretes.Add(frete);
-                db.Vendas.Add(venda);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProdutoID = new SelectList(db.Produtoes, "ID", "Descricao", venda.ProdutoID);
-            ViewBag.TransportadoraID = new SelectList(db.Transportadoras, "ID", "Descricao", venda.TransportadoraID);
-            return View(venda);
+            ViewBag.TransportadoraID = new SelectList(db.Transportadoras, "ID", "Descricao", frete.TransportadoraID);
+            ViewBag.VendaID = new SelectList(db.Vendas, "ID", "Descricao", frete.VendaID);
+            return View(frete);
         }
 
-        // GET: Vendas/Edit/5
+        // GET: Fretes/Edit/5
         [Authorize]
         public ActionResult Edit(int? id)
         {
@@ -88,36 +75,36 @@ namespace enzo_estoqueV1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Venda venda = db.Vendas.Find(id);
-            if (venda == null)
+            Frete frete = db.Fretes.Find(id);
+            if (frete == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ProdutoID = new SelectList(db.Produtoes, "ID", "Descricao", venda.ProdutoID);
-            ViewBag.TransportadoraID = new SelectList(db.Transportadoras, "ID", "Descricao", venda.TransportadoraID);
-            return View(venda);
+            ViewBag.TransportadoraID = new SelectList(db.Transportadoras, "ID", "Descricao", frete.TransportadoraID);
+            ViewBag.VendaID = new SelectList(db.Vendas, "ID", "Descricao", frete.VendaID);
+            return View(frete);
         }
 
-        // POST: Vendas/Edit/5
+        // POST: Fretes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Descricao,Quantidade,EnderecoDeEntrega,ValorTotal,Situacao,Pagamento,ProdutoID,DataVenda,TransportadoraID")] Venda venda)
+        public ActionResult Edit([Bind(Include = "ID,Descricao,EnderecoEntrega,Status,VendaID,TransportadoraID")] Frete frete)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(venda).State = EntityState.Modified;
+                db.Entry(frete).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProdutoID = new SelectList(db.Produtoes, "ID", "Descricao", venda.ProdutoID);
-            ViewBag.TransportadoraID = new SelectList(db.Transportadoras, "ID", "Descricao", venda.TransportadoraID);
-            return View(venda);
+            ViewBag.TransportadoraID = new SelectList(db.Transportadoras, "ID", "Descricao", frete.TransportadoraID);
+            ViewBag.VendaID = new SelectList(db.Vendas, "ID", "Descricao", frete.VendaID);
+            return View(frete);
         }
 
-        // GET: Vendas/Delete/5
+        // GET: Fretes/Delete/5
         [Authorize]
         public ActionResult Delete(int? id)
         {
@@ -125,22 +112,22 @@ namespace enzo_estoqueV1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Venda venda = db.Vendas.Find(id);
-            if (venda == null)
+            Frete frete = db.Fretes.Find(id);
+            if (frete == null)
             {
                 return HttpNotFound();
             }
-            return View(venda);
+            return View(frete);
         }
 
-        // POST: Vendas/Delete/5
+        // POST: Fretes/Delete/5
         [HttpPost, ActionName("Delete")]
         [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Venda venda = db.Vendas.Find(id);
-            db.Vendas.Remove(venda);
+            Frete frete = db.Fretes.Find(id);
+            db.Fretes.Remove(frete);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
