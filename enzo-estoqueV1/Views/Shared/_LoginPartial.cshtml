@@ -5,21 +5,6 @@
     {
         @Html.AntiForgeryToken()
 
-
-        @*<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <div class="photo">
-                    <img src="../assets/img/anime3.png" alt="Profile Photo">
-                </div>
-                <b class="caret d-none d-lg-block d-xl-block"></b>
-                <p class="d-lg-none">
-                    Log out
-                </p>
-            </a>
-            <li class="nav-link">
-
-            </li>
-            <li class="dropdown-divider"></li>
-            </li>*@
 <li class="nav navbar-nav"></li>
         <li class="dropdown nav-item">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -46,7 +31,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Cadastrar", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
